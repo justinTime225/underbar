@@ -100,6 +100,21 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    var result = [];
+    var contains = function(arr, target) {
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === target) {
+          return true;
+        }
+      }
+      return false;
+    };
+    for (var i = 0; i < array.length; i++) {
+      if (!contains(result, array[i])) {
+        result.push(array[i]);
+      }
+    }
+    return result;
   };
 
 
